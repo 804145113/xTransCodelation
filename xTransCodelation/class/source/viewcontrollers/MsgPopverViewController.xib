@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MsgPopverViewController">
+            <connections>
+                <outlet property="textView_msg" destination="IR1-ew-Wqw" id="WJI-hg-hGA"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="xa6-OA-Ecc"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="5" width="354" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDr-HZ-F6h">
+                    <rect key="frame" x="0.0" y="0.0" width="354" height="120"/>
+                    <clipView key="contentView" id="dpV-J4-Rsh">
+                        <rect key="frame" x="1" y="1" width="223" height="133"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="IR1-ew-Wqw">
+                                <rect key="frame" x="0.0" y="0.0" width="223" height="161"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="minSize" width="339" height="120"/>
+                                <size key="maxSize" width="522" height="10000000"/>
+                                <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <size key="minSize" width="339" height="120"/>
+                                <size key="maxSize" width="522" height="10000000"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="vdb-PG-dAW">
+                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="Q3M-lA-O1e">
+                        <rect key="frame" x="224" y="1" width="15" height="133"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="tIV-ZD-Rn9">
+                    <rect key="frame" x="297" y="5" width="37" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="71z-73-NsO"/>
+                        <constraint firstAttribute="height" constant="24" id="q1X-bO-ngd"/>
+                    </constraints>
+                    <buttonCell key="cell" type="bevel" title="close" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="RcJ-j7-egH">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="closeAction:" target="-2" id="186-Ra-Bcx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="tDr-HZ-F6h" secondAttribute="bottom" id="N3A-oe-e8R"/>
+                <constraint firstAttribute="trailing" secondItem="tIV-ZD-Rn9" secondAttribute="trailing" constant="20" id="aIG-bD-mNP"/>
+                <constraint firstItem="tDr-HZ-F6h" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="bvz-25-afK"/>
+                <constraint firstAttribute="bottom" secondItem="tIV-ZD-Rn9" secondAttribute="bottom" constant="5" id="cZg-Iv-St1"/>
+                <constraint firstItem="tDr-HZ-F6h" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="gv1-65-F0T"/>
+                <constraint firstAttribute="trailing" secondItem="tDr-HZ-F6h" secondAttribute="trailing" id="yKw-1T-lsc"/>
+            </constraints>
+            <point key="canvasLocation" x="610" y="256"/>
+        </customView>
+    </objects>
+</document>

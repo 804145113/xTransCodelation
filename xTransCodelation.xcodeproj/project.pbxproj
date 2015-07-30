@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A33B00DC1B67226D005E9B84 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33B00DB1B67226D005E9B84 /* AppKit.framework */; };
+		A33B00DE1B67226D005E9B84 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33B00DD1B67226D005E9B84 /* Foundation.framework */; };
+		A33B00E31B67226D005E9B84 /* xTransCodelation.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = A33B00E21B67226D005E9B84 /* xTransCodelation.xcscheme */; };
+		A39F348F1B69CA2B000BCF67 /* HOStringFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F348C1B69CA2B000BCF67 /* HOStringFrameView.m */; };
+		A39F34901B69CA2B000BCF67 /* HOStringInfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F348E1B69CA2B000BCF67 /* HOStringInfoButton.m */; };
+		A39F349B1B69CA67000BCF67 /* MsgPopverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F34931B69CA67000BCF67 /* MsgPopverViewController.m */; };
+		A39F349C1B69CA67000BCF67 /* MsgPopverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39F34941B69CA67000BCF67 /* MsgPopverViewController.xib */; };
+		A39F349D1B69CA67000BCF67 /* MsgWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F34961B69CA67000BCF67 /* MsgWebViewController.m */; };
+		A39F349E1B69CA67000BCF67 /* MsgWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39F34971B69CA67000BCF67 /* MsgWebViewController.xib */; };
+		A39F349F1B69CA67000BCF67 /* SettingWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F34991B69CA67000BCF67 /* SettingWindowController.m */; };
+		A39F34A01B69CA67000BCF67 /* SettingWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39F349A1B69CA67000BCF67 /* SettingWindowController.xib */; };
+		A3E6DBA01B67703F0082CCAC /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E6DB9F1B67703F0082CCAC /* NSString+URLEncode.m */; };
+		A3E6DBA41B677E330082CCAC /* BDTranslateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E6DBA31B677E330082CCAC /* BDTranslateManager.m */; };
+		A3E6DBAC1B677E570082CCAC /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E6DBA71B677E570082CCAC /* NSObject_Extension.m */; };
+		A3E6DBAE1B677E570082CCAC /* xTransCodelation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E6DBAB1B677E570082CCAC /* xTransCodelation.m */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations -Wno-format"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A33B00D81B67226D005E9B84 /* xTransCodelation.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xTransCodelation.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		A33B00DB1B67226D005E9B84 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		A33B00DD1B67226D005E9B84 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		A33B00E11B67226D005E9B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A33B00E21B67226D005E9B84 /* xTransCodelation.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = xTransCodelation.xcscheme; path = xTransCodelation.xcodeproj/xcshareddata/xcschemes/xTransCodelation.xcscheme; sourceTree = SOURCE_ROOT; };
+		A39F348B1B69CA2B000BCF67 /* HOStringFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOStringFrameView.h; sourceTree = "<group>"; };
+		A39F348C1B69CA2B000BCF67 /* HOStringFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOStringFrameView.m; sourceTree = "<group>"; };
+		A39F348D1B69CA2B000BCF67 /* HOStringInfoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOStringInfoButton.h; sourceTree = "<group>"; };
+		A39F348E1B69CA2B000BCF67 /* HOStringInfoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOStringInfoButton.m; sourceTree = "<group>"; };
+		A39F34921B69CA67000BCF67 /* MsgPopverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgPopverViewController.h; sourceTree = "<group>"; };
+		A39F34931B69CA67000BCF67 /* MsgPopverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgPopverViewController.m; sourceTree = "<group>"; };
+		A39F34941B69CA67000BCF67 /* MsgPopverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MsgPopverViewController.xib; sourceTree = "<group>"; };
+		A39F34951B69CA67000BCF67 /* MsgWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgWebViewController.h; sourceTree = "<group>"; };
+		A39F34961B69CA67000BCF67 /* MsgWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgWebViewController.m; sourceTree = "<group>"; };
+		A39F34971B69CA67000BCF67 /* MsgWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MsgWebViewController.xib; sourceTree = "<group>"; };
+		A39F34981B69CA67000BCF67 /* SettingWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingWindowController.h; sourceTree = "<group>"; };
+		A39F34991B69CA67000BCF67 /* SettingWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingWindowController.m; sourceTree = "<group>"; };
+		A39F349A1B69CA67000BCF67 /* SettingWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingWindowController.xib; sourceTree = "<group>"; };
+		A3E6DB9E1B67703F0082CCAC /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
+		A3E6DB9F1B67703F0082CCAC /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
+		A3E6DBA21B677E330082CCAC /* BDTranslateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDTranslateManager.h; sourceTree = "<group>"; };
+		A3E6DBA31B677E330082CCAC /* BDTranslateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDTranslateManager.m; sourceTree = "<group>"; };
+		A3E6DBA61B677E570082CCAC /* NSObject_Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSObject_Extension.h; path = class/source/NSObject_Extension.h; sourceTree = "<group>"; };
+		A3E6DBA71B677E570082CCAC /* NSObject_Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSObject_Extension.m; path = class/source/NSObject_Extension.m; sourceTree = "<group>"; };
+		A3E6DBAA1B677E570082CCAC /* xTransCodelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xTransCodelation.h; sourceTree = "<group>"; };
+		A3E6DBAB1B677E570082CCAC /* xTransCodelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xTransCodelation.m; sourceTree = "<group>"; };
+		A3E8B5691B68AE310098B7E6 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macro.h; path = class/source/Macro.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A33B00D61B67226D005E9B84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A33B00DC1B67226D005E9B84 /* AppKit.framework in Frameworks */,
+				A33B00DE1B67226D005E9B84 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A33B00CF1B67226D005E9B84 = {
+			isa = PBXGroup;
+			children = (
+				A33B00DF1B67226D005E9B84 /* xTransCodelation */,
+				A33B00DA1B67226D005E9B84 /* Frameworks */,
+				A33B00D91B67226D005E9B84 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A33B00D91B67226D005E9B84 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A33B00D81B67226D005E9B84 /* xTransCodelation.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A33B00DA1B67226D005E9B84 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A33B00DB1B67226D005E9B84 /* AppKit.framework */,
+				A33B00DD1B67226D005E9B84 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A33B00DF1B67226D005E9B84 /* xTransCodelation */ = {
+			isa = PBXGroup;
+			children = (
+				A3ACCA101B67373F007390BB /* class */,
+				A33B00E01B67226D005E9B84 /* Supporting Files */,
+			);
+			path = xTransCodelation;
+			sourceTree = "<group>";
+		};
+		A33B00E01B67226D005E9B84 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3E8B5691B68AE310098B7E6 /* Macro.h */,
+				A3E6DBA61B677E570082CCAC /* NSObject_Extension.h */,
+				A3E6DBA71B677E570082CCAC /* NSObject_Extension.m */,
+				A33B00E11B67226D005E9B84 /* Info.plist */,
+				A33B00E21B67226D005E9B84 /* xTransCodelation.xcscheme */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A39F348A1B69CA2B000BCF67 /* others */ = {
+			isa = PBXGroup;
+			children = (
+				A39F348B1B69CA2B000BCF67 /* HOStringFrameView.h */,
+				A39F348C1B69CA2B000BCF67 /* HOStringFrameView.m */,
+				A39F348D1B69CA2B000BCF67 /* HOStringInfoButton.h */,
+				A39F348E1B69CA2B000BCF67 /* HOStringInfoButton.m */,
+			);
+			path = others;
+			sourceTree = "<group>";
+		};
+		A39F34911B69CA67000BCF67 /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				A39F34921B69CA67000BCF67 /* MsgPopverViewController.h */,
+				A39F34931B69CA67000BCF67 /* MsgPopverViewController.m */,
+				A39F34941B69CA67000BCF67 /* MsgPopverViewController.xib */,
+				A39F34951B69CA67000BCF67 /* MsgWebViewController.h */,
+				A39F34961B69CA67000BCF67 /* MsgWebViewController.m */,
+				A39F34971B69CA67000BCF67 /* MsgWebViewController.xib */,
+				A39F34981B69CA67000BCF67 /* SettingWindowController.h */,
+				A39F34991B69CA67000BCF67 /* SettingWindowController.m */,
+				A39F349A1B69CA67000BCF67 /* SettingWindowController.xib */,
+			);
+			path = viewcontrollers;
+			sourceTree = "<group>";
+		};
+		A3ACCA101B67373F007390BB /* class */ = {
+			isa = PBXGroup;
+			children = (
+				A39F348A1B69CA2B000BCF67 /* others */,
+				A3E6DBA51B677E570082CCAC /* source */,
+				A3E6DBA11B677E330082CCAC /* api */,
+				A3E6DB9D1B67703F0082CCAC /* category */,
+			);
+			path = class;
+			sourceTree = "<group>";
+		};
+		A3E6DB9D1B67703F0082CCAC /* category */ = {
+			isa = PBXGroup;
+			children = (
+				A3E6DB9E1B67703F0082CCAC /* NSString+URLEncode.h */,
+				A3E6DB9F1B67703F0082CCAC /* NSString+URLEncode.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		A3E6DBA11B677E330082CCAC /* api */ = {
+			isa = PBXGroup;
+			children = (
+				A3E6DBA21B677E330082CCAC /* BDTranslateManager.h */,
+				A3E6DBA31B677E330082CCAC /* BDTranslateManager.m */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		A3E6DBA51B677E570082CCAC /* source */ = {
+			isa = PBXGroup;
+			children = (
+				A39F34911B69CA67000BCF67 /* viewcontrollers */,
+				A3E6DBAA1B677E570082CCAC /* xTransCodelation.h */,
+				A3E6DBAB1B677E570082CCAC /* xTransCodelation.m */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A33B00D71B67226D005E9B84 /* xTransCodelation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A33B00EC1B67226D005E9B84 /* Build configuration list for PBXNativeTarget "xTransCodelation" */;
+			buildPhases = (
+				A33B00D41B67226D005E9B84 /* Sources */,
+				A33B00D51B67226D005E9B84 /* Resources */,
+				A33B00D61B67226D005E9B84 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = xTransCodelation;
+			productName = xTransCodelation;
+			productReference = A33B00D81B67226D005E9B84 /* xTransCodelation.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A33B00D01B67226D005E9B84 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Tangxianhai;
+				TargetAttributes = {
+					A33B00D71B67226D005E9B84 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+				};
+			};
+			buildConfigurationList = A33B00D31B67226D005E9B84 /* Build configuration list for PBXProject "xTransCodelation" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A33B00CF1B67226D005E9B84;
+			productRefGroup = A33B00D91B67226D005E9B84 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A33B00D71B67226D005E9B84 /* xTransCodelation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A33B00D51B67226D005E9B84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A39F349C1B69CA67000BCF67 /* MsgPopverViewController.xib in Resources */,
+				A39F349E1B69CA67000BCF67 /* MsgWebViewController.xib in Resources */,
+				A39F34A01B69CA67000BCF67 /* SettingWindowController.xib in Resources */,
+				A33B00E31B67226D005E9B84 /* xTransCodelation.xcscheme in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A33B00D41B67226D005E9B84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A39F349B1B69CA67000BCF67 /* MsgPopverViewController.m in Sources */,
+				A39F34901B69CA2B000BCF67 /* HOStringInfoButton.m in Sources */,
+				A39F349F1B69CA67000BCF67 /* SettingWindowController.m in Sources */,
+				A3E6DBA41B677E330082CCAC /* BDTranslateManager.m in Sources */,
+				A39F349D1B69CA67000BCF67 /* MsgWebViewController.m in Sources */,
+				A3E6DBAC1B677E570082CCAC /* NSObject_Extension.m in Sources */,
+				A39F348F1B69CA2B000BCF67 /* HOStringFrameView.m in Sources */,
+				A3E6DBA01B67703F0082CCAC /* NSString+URLEncode.m in Sources */,
+				A3E6DBAE1B677E570082CCAC /* xTransCodelation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A33B00EA1B67226D005E9B84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		A33B00EB1B67226D005E9B84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		A33B00ED1B67226D005E9B84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = xTransCodelation/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		A33B00EE1B67226D005E9B84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = xTransCodelation/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A33B00D31B67226D005E9B84 /* Build configuration list for PBXProject "xTransCodelation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A33B00EA1B67226D005E9B84 /* Debug */,
+				A33B00EB1B67226D005E9B84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A33B00EC1B67226D005E9B84 /* Build configuration list for PBXNativeTarget "xTransCodelation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A33B00ED1B67226D005E9B84 /* Debug */,
+				A33B00EE1B67226D005E9B84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A33B00D01B67226D005E9B84 /* Project object */;
+}
