@@ -142,10 +142,10 @@
         return;
     }
     [self dismissPopover];
-    if(!_stringPopoverViewController) {
-        _stringPopoverViewController = [[MsgPopverViewController alloc] initWithNibName:@"MsgPopverViewController" bundle:[NSBundle bundleForClass:[MsgPopverViewController class]]];
+    if(!_webViewController) {
         _webViewController = [[MsgWebViewController alloc] initWithNibName:@"MsgWebViewController" bundle:[NSBundle bundleForClass:[MsgWebViewController class]]];
     }
+    _stringPopoverViewController = [[MsgPopverViewController alloc] initWithNibName:@"MsgPopverViewController" bundle:[NSBundle bundleForClass:[MsgPopverViewController class]]];
     
     if(!_stringPopover) {
         _stringPopover = [[NSPopover alloc] init];
@@ -155,7 +155,7 @@
         // SDK翻译模式
         _stringPopoverViewController.textView_msg.string = @"";
         [BDTranslateManager translateContent:_selectedStringContent block:^(NSDictionary *jsonContent) {
-            [_stringPopoverViewController.textView_msg insertText:[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:jsonContent options:NSJSONWritingPrettyPrinted error:nil] encoding:NSUTF8StringEncoding]];
+            _stringPopoverViewController.msgDictionary = jsonContent;
             _stringPopoverViewController.popVer = _stringPopover;
             _stringPopover.contentViewController = _stringPopoverViewController;
             _stringPopover.contentViewController = _stringPopoverViewController;
@@ -195,6 +195,8 @@
 - (void)dismissPopover {
     TNSLog
     if(_stringPopover) {
+        [_stringPopoverViewController removeFromParentViewController];
+        _stringPopoverViewController = nil;
         [_stringPopover close];
     }
 }
