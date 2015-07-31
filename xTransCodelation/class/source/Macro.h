@@ -7,6 +7,7 @@
 //
 
 #define KEYAPI @"keyApi"
+#define KEYFROM @"keyfrom"
 #define KEYENABLETRANSLATE @"isEnableTranslate"
 #define KEYAPIMODEL @"keyModel"
 #define NSNullRange NSMakeRange(NSNotFound, 0)

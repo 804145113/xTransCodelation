@@ -6,9 +6,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SettingWindowController">
             <connections>
+                <outlet property="buttonOpenUrl" destination="MU6-M5-M3v" id="YoC-FC-mfx"/>
                 <outlet property="button_enableTranslate" destination="Pbq-cL-16m" id="9fa-xE-cnA"/>
-                <outlet property="matrix_model" destination="GxG-9U-Awx" id="5jc-oc-uc8"/>
+                <outlet property="comboBoxmodel" destination="evf-Zd-43T" id="uVP-tQ-7EH"/>
                 <outlet property="textField_apiKey" destination="tq6-Dd-V5e" id="cBK-m7-qtd"/>
+                <outlet property="textField_keyfrom" destination="xZ0-pG-3Wf" id="Tgl-eZ-Wi3"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -17,24 +19,14 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="414" height="150"/>
+            <rect key="contentRect" x="196" y="240" width="414" height="128"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="5" width="414" height="150"/>
+                <rect key="frame" x="0.0" y="5" width="414" height="128"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pbq-cL-16m">
-                        <rect key="frame" x="18" y="75" width="74" height="18"/>
-                        <buttonCell key="cell" type="check" title="开启翻译" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xc3-6Q-4SZ">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" size="13" name="STHeitiSC-Light"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="actionBeginTranslate:" target="-2" id="exY-DI-Gs8"/>
-                        </connections>
-                    </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DFf-n4-Scg">
-                        <rect key="frame" x="331" y="105" width="64" height="32"/>
+                        <rect key="frame" x="321" y="53" width="82" height="59"/>
                         <buttonCell key="cell" type="bevel" title="更新" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Byi-LT-LW0">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -43,20 +35,16 @@
                             <action selector="actionUpdatApiKey:" target="-2" id="26y-AE-UBm"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hNp-ca-Pd8">
-                        <rect key="frame" x="18" y="113" width="112" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="17" id="Pg7-2M-qKY"/>
-                            <constraint firstAttribute="width" constant="108" id="vbV-nq-0zs"/>
-                        </constraints>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="百度翻译APIkey：" id="JvM-Nv-8Ym">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hNp-ca-Pd8">
+                        <rect key="frame" x="18" y="91" width="118" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="有道翻译API  key：" id="JvM-Nv-8Ym">
                             <font key="font" size="13" name="STHeitiSC-Light"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tq6-Dd-V5e">
-                        <rect key="frame" x="143" y="110" width="167" height="22"/>
+                        <rect key="frame" x="143" y="88" width="167" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="LJw-vX-5YZ">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -64,50 +52,63 @@
                         </textFieldCell>
                     </textField>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MU6-M5-M3v">
-                        <rect key="frame" x="141" y="68" width="171" height="32"/>
-                        <buttonCell key="cell" type="bevel" title="获取APIkey" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cly-kr-DqN">
+                        <rect key="frame" x="230" y="17" width="173" height="32"/>
+                        <buttonCell key="cell" type="bevel" title="点我 申请有道API key和 keyfrom" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cly-kr-DqN">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system" size="10"/>
+                            <font key="font" size="10" name="STHeitiSC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="actionOpenUrlBaiDuApi:" target="-2" id="AID-Y7-BjS"/>
                         </connections>
                     </button>
-                    <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GxG-9U-Awx">
-                        <rect key="frame" x="19" y="20" width="374" height="38"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        <size key="cellSize" width="199" height="18"/>
-                        <size key="intercellSpacing" width="4" height="2"/>
-                        <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="7F1-7M-Fs0">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8nc-JT-pal">
+                        <rect key="frame" x="18" y="61" width="120" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="有道翻译keyfrom：" id="yUg-G0-Xrl">
+                            <font key="font" size="13" name="STHeitiSC-Light"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZ0-pG-3Wf">
+                        <rect key="frame" x="143" y="56" width="167" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="JCf-fk-WhU">
                             <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <cells>
-                            <column>
-                                <buttonCell type="radio" title="SDK模式（需要申请APIKey）" imagePosition="left" alignment="left" state="on" tag="1" inset="2" id="KX3-ri-Ke2">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <buttonCell type="radio" title="百度翻译网页模式（无限制）" imagePosition="left" alignment="left" inset="2" id="Jia-dg-rbD">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </column>
-                        </cells>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="evf-Zd-43T">
+                        <rect key="frame" x="143" y="20" width="87" height="26"/>
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="3" id="vW8-ky-lOP">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <objectValues>
+                                <string>百度翻译词典</string>
+                                <string>有道翻译词典</string>
+                                <string>SDK翻译模式</string>
+                            </objectValues>
+                        </comboBoxCell>
                         <connections>
-                            <action selector="actionModel:" target="-2" id="Zcb-La-lg6"/>
+                            <action selector="actionSelectTranslation:" target="-2" id="Fnj-TR-z2B"/>
                         </connections>
-                    </matrix>
+                    </comboBox>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pbq-cL-16m">
+                        <rect key="frame" x="56" y="25" width="74" height="18"/>
+                        <buttonCell key="cell" type="check" title="开启翻译" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xc3-6Q-4SZ">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" size="13" name="STHeitiSC-Light"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="actionBeginTranslate:" target="-2" id="exY-DI-Gs8"/>
+                        </connections>
+                    </button>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="hNp-ca-Pd8" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="L8b-nO-8hw"/>
-                    <constraint firstItem="hNp-ca-Pd8" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" id="e8y-vN-N83"/>
-                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="323" y="186"/>
+            <point key="canvasLocation" x="408" y="195"/>
         </window>
     </objects>
 </document>

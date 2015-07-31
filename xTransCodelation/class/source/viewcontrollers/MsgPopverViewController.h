@@ -12,4 +12,6 @@
 @property (unsafe_unretained) IBOutlet NSTextView *textView_msg;
 @property (strong, nonatomic) NSPopover *popVer;
 
+@property (strong, nonatomic) NSDictionary *msgDictionary;
+
 @end
