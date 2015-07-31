@@ -13,4 +13,4 @@ XCODE中英文翻译插件，提供API查询模式和网页模式，都是利用
 详见下面的GIF动画图片，图片文件比较大，请耐心等待...
 
 
-![](https://github.com/804145113/Resource/blob/master/gxy.gif)
+![](http://i1.tietuku.com/02502185ae160529.gif)
