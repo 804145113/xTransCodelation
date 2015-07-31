@@ -246,7 +246,6 @@
         }
         else if (action == NSAlertAlternateReturn)
             {
-//                NSLog(@"alternateButton clicked!");
                 NSWorkspace * ws = [NSWorkspace sharedWorkspace];
                 NSArray * appsPids = [ws launchedApplications];
                 for (NSDictionary * processInformation in appsPids)
@@ -264,7 +263,7 @@
             }
         else if (action == NSAlertOtherReturn)
             {
-//                NSLog(@"cancelButton clicked!");
+                
             }
 }
 
