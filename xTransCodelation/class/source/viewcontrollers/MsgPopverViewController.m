@@ -17,9 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSLog(@"_msgDictionary:%@",_msgDictionary);
-    
     // 字体样式一
     NSDictionary *dic1 = @{
                            NSFontAttributeName:[NSFont systemFontOfSize:20.f],
@@ -60,14 +57,11 @@
     [_textView_msg insertText:mQuery];
     
     [webs enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
-        
         NSString *key = obj[@"key"];
         NSString *valueString = [self arrayToString:obj[@"value"]];
         NSMutableAttributedString *atr1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@:\n%@",key,valueString]];
-        
         [atr1 setAttributes:dic1 range:NSMakeRange(0, [key length] + 1)];
         [atr1 setAttributes:dic2 range:NSMakeRange([key length] + 1, [valueString length])];
-        
         [_textView_msg insertText:atr1];
     }];
 }
