@@ -10,8 +10,8 @@
 #import <AppKit/AppKit.h>
 #import "NSString+URLEncode.h"
 
-static NSString *translateUrl = @"http://openapi.baidu.com/public/2.0/bmt/translate";
-static NSString *apiKey = @"D07V0zTaFZilAr4f8F7FSGDG";
+static NSString *apiKey = @"2003963017";
+static NSString *keyfrom = @"XcodeTranslate";
 
 @interface BDTranslateManager : NSObject
 

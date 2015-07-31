@@ -151,31 +151,32 @@
         _stringPopover = [[NSPopover alloc] init];
     }
     
-    if (![[[NSUserDefaults standardUserDefaults] objectForKey:KEYAPIMODEL] isEqualToString:@"1"]) {
-        __block NSMutableAttributedString *attributedString = nil;
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:KEYAPIMODEL] isEqualToString:@"2"]) {
+        // SDK翻译模式
         _stringPopoverViewController.textView_msg.string = @"";
         [BDTranslateManager translateContent:_selectedStringContent block:^(NSDictionary *jsonContent) {
-            NSArray *trans_result = jsonContent[@"trans_result"];
-            [trans_result enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
-                attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@\n",obj[@"src"],obj[@"dst"]]];
-                [attributedString addAttribute:NSFontAttributeName value:self.textView.font range:NSMakeRange(0, [attributedString length])];
-                [attributedString addAttribute:NSForegroundColorAttributeName value:[NSColor blackColor] range:NSMakeRange(0, [attributedString length])];
-                [attributedString addAttribute:NSForegroundColorAttributeName value:[NSColor blueColor] range:NSMakeRange(0, [obj[@"src"] length])];
-                [attributedString addAttribute:NSForegroundColorAttributeName value:[NSColor redColor] range:NSMakeRange([obj[@"src"] length] + 1, [obj[@"dst"] length] + 1)];
-                [_stringPopoverViewController.textView_msg insertText:attributedString];
-                _stringPopoverViewController.popVer = _stringPopover;
-                _stringPopover.contentViewController = _stringPopoverViewController;
-                _stringPopover.contentViewController = _stringPopoverViewController;
-                _stringPopover.contentSize = _stringPopoverViewController.view.frame.size;
-                _stringPopover.delegate = self;
-                [_stringPopover showRelativeToRect:self.stringButton.bounds
-                                            ofView:self.stringButton
-                                     preferredEdge:NSMinYEdge];
-            }];
+            [_stringPopoverViewController.textView_msg insertText:[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:jsonContent options:NSJSONWritingPrettyPrinted error:nil] encoding:NSUTF8StringEncoding]];
+            _stringPopoverViewController.popVer = _stringPopover;
+            _stringPopover.contentViewController = _stringPopoverViewController;
+            _stringPopover.contentViewController = _stringPopoverViewController;
+            _stringPopover.contentSize = _stringPopoverViewController.view.frame.size;
+            _stringPopover.delegate = self;
+            [_stringPopover showRelativeToRect:self.stringButton.bounds
+                                        ofView:self.stringButton
+                                 preferredEdge:NSMinYEdge];
         }];
     }
     else {
-        NSString *translateString = [NSString stringWithFormat:@"%@%@",@"http://fanyi.baidu.com/?aldtype=16047#auto/zh/",[_selectedStringContent URLEncode]];
+        // 非SDK翻译模式，又分为有道或是百度网页翻译
+        NSString *translateString = nil;
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:KEYAPIMODEL] isEqualToString:@"1"]) {
+            // 有道翻译
+            translateString = [NSString stringWithFormat:@"http://dict.youdao.com/search?le=eng&q=%@&keyfrom=dict.top",[_selectedStringContent URLEncode]];
+        }
+        else {
+            // 百度翻译
+            translateString = [NSString stringWithFormat:@"%@%@",@"http://fanyi.baidu.com/?aldtype=16047#auto/zh/",[_selectedStringContent URLEncode]];
+        }
         [_webViewController.msgWebView.mainFrame loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:translateString]]];
         _stringPopover.contentViewController = _webViewController;
         _stringPopover.contentSize = _webViewController.view.frame.size;
