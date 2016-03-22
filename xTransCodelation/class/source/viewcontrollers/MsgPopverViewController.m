@@ -17,53 +17,67 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 字体样式一
-    NSDictionary *dic1 = @{
-                           NSFontAttributeName:[NSFont systemFontOfSize:20.f],
-                           NSForegroundColorAttributeName:[NSColor blackColor]
-                           };
-    // 字体样式二
-    NSDictionary *dic2 = @{
-                           NSFontAttributeName:[NSFont systemFontOfSize:20.f],
-                           NSForegroundColorAttributeName:[NSColor blueColor]
-                           };
     // 1.查询的内容
     NSString *query = [_msgDictionary objectForKey:@"query"];
+    if (query.length > 0) {
+        NSMutableAttributedString * mQuery= [[NSMutableAttributedString alloc] initWithString:query attributes:@{
+                                                                                                                 NSFontAttributeName:[NSFont boldSystemFontOfSize:18.f],
+                                                                                                                 NSForegroundColorAttributeName:[NSColor blackColor]
+                                                                                                                 }];
+        [_textView_msg insertText:mQuery];
+    }
     
-    // 2.直译
-    NSString *translation = [self arrayToString:[_msgDictionary objectForKey:@"translation"]];
-    
-    // 2.1拼接查询和直翻译文字
-    NSMutableAttributedString * mQuery= [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@:\n%@",query,translation]];
-    // 2.2设置样式
-    [mQuery setAttributes:dic1 range:NSMakeRange(0, [query length] + 1)];
-    [mQuery setAttributes:dic2 range:NSMakeRange([query length] + 1, [translation length])];
-    
-    [_textView_msg insertText:mQuery];
-    
+    // 2.音标
+    NSString *pre_phonetic = [[_msgDictionary objectForKey:@"basic"] objectForKey:@"phonetic"];
+    if (pre_phonetic.length > 0) {
+        NSString *phonetic = [[@"|" stringByAppendingString:pre_phonetic] stringByAppendingString:@"|"];
+        NSMutableAttributedString * mPhonetic = [[NSMutableAttributedString alloc] initWithString:phonetic attributes:@{
+                                                                                                                        NSFontAttributeName:[NSFont fontWithName:@"Consolas" size:13.f],
+                                                                                                                        NSForegroundColorAttributeName:[NSColor grayColor]
+                                                                                                                        }];
+        [_textView_msg insertText:@"\t"];
+        [_textView_msg insertText:mPhonetic];
+    }
+
     // 3.解释说明
     NSArray *explains = [[_msgDictionary objectForKey:@"basic"] objectForKey:@"explains"];
     NSString *explain = [self arrayToString:explains];
-    mQuery = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@:\n%@",@"解释说明",explain]];
-    [mQuery setAttributes:dic1 range:NSMakeRange(0, [@"解释说明" length] + 1)];
-    [mQuery setAttributes:dic2 range:NSMakeRange([@"解释说明" length] + 1, [explain length])];
-    [_textView_msg insertText:mQuery];
-    
+    if (explain.length > 0) {
+        NSMutableAttributedString * mExplain = [[NSMutableAttributedString alloc] initWithString:explain attributes:@{
+                                                                                                                      NSFontAttributeName:[NSFont systemFontOfSize:14.f],
+                                                                                                                      NSForegroundColorAttributeName:[NSColor blackColor]
+                                                                                                                      }];
+        
+        [_textView_msg insertText:@"\n"];
+        [_textView_msg insertText:mExplain];
+    }
+
     // 4.网络释义
     NSArray *webs = [_msgDictionary objectForKey:@"web"];
-    
-    mQuery = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@:\n",@"网络释义"]];
-    [mQuery setAttributes:dic1 range:NSMakeRange(0, [@"网络释义" length] + 1)];
-    [_textView_msg insertText:mQuery];
-    
-    [webs enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
-        NSString *key = obj[@"key"];
-        NSString *valueString = [self arrayToString:obj[@"value"]];
-        NSMutableAttributedString *atr1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@:\n%@",key,valueString]];
-        [atr1 setAttributes:dic1 range:NSMakeRange(0, [key length] + 1)];
-        [atr1 setAttributes:dic2 range:NSMakeRange([key length] + 1, [valueString length])];
-        [_textView_msg insertText:atr1];
-    }];
+    if (webs.count > 0) {
+        __block NSMutableString *webString = [[NSMutableString alloc] initWithString:@"网络释义:"];
+        [webs enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
+            NSString *key = obj[@"key"];
+            NSString *valueString = [obj[@"value"] firstObject];
+            if (key.length > 0 && valueString.length > 0) {
+                [webString appendString:@"\n"];
+                [webString appendString:[NSString stringWithFormat:@"%ld. %@:%@",idx,key,valueString]];
+            }
+        }];
+        
+        NSMutableAttributedString * mWebString = [[NSMutableAttributedString alloc] initWithString:webString attributes:@{
+                                                                                                                      NSFontAttributeName:[NSFont systemFontOfSize:14.f],
+                                                                                                                      NSForegroundColorAttributeName:[NSColor blackColor]
+                                                                                                                      }];
+        [mWebString setAttributes:@{
+                                    NSFontAttributeName:[NSFont boldSystemFontOfSize:18.f],
+                                    NSForegroundColorAttributeName:[NSColor darkGrayColor]
+                                    }
+                            range:NSMakeRange(0, [@"网络释义:" length] + 1)];
+
+        [_textView_msg insertText:@"\n"];
+        [_textView_msg insertText:mWebString];
+    }
 }
 
 - (NSString *)arrayToString:(NSArray *)ary {

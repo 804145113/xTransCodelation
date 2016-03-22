@@ -93,6 +93,12 @@
                 NSString *text = self.textView.textStorage.string;
                 self.selectedStringContent = [text substringWithRange:_selectedStringRange];
                 
+                // 判空
+                NSString *str = [self.selectedStringContent stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                if (str.length <= 0) {
+                    [self removeSelection];
+                    return ;
+                }
                 // 根据Xcode主题计算颜色
                 NSColor *backgroundColor = [self.textView.backgroundColor colorUsingColorSpace:[NSColorSpace genericRGBColorSpace]];
                 CGFloat r = 1.0; CGFloat g = 1.0; CGFloat b = 1.0;
