@@ -12,6 +12,6 @@ XCODE中英文翻译插件，提供API查询模式和网页模式，都是利用
 # 用法 #
 详见下面的GIF动画图片，图片文件比较大，请耐心等待...
 
-![](http://i1.tietuku.com/02502185ae160529.gif)
+![](http://chuantu.biz/t2/33/1458721487x1822611687.png)
 
 The MIT License (MIT)
