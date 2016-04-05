@@ -32,7 +32,7 @@
     if (pre_phonetic.length > 0) {
         NSString *phonetic = [[@"|" stringByAppendingString:pre_phonetic] stringByAppendingString:@"|"];
         NSMutableAttributedString * mPhonetic = [[NSMutableAttributedString alloc] initWithString:phonetic attributes:@{
-                                                                                                                        NSFontAttributeName:[NSFont fontWithName:@"Consolas" size:13.f],
+                                                                                                                        NSFontAttributeName:[NSFont systemFontOfSize:13],
                                                                                                                         NSForegroundColorAttributeName:[NSColor grayColor]
                                                                                                                         }];
         [_textView_msg insertText:@"\t"];
