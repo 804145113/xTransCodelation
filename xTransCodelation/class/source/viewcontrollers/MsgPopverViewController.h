@@ -14,4 +14,6 @@
 
 @property (strong, nonatomic) NSDictionary *msgDictionary;
 
+@property (strong, nonatomic) NSString *msg;
+
 @end
