@@ -22,6 +22,7 @@
 		A3E6DBA41B677E330082CCAC /* BDTranslateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E6DBA31B677E330082CCAC /* BDTranslateManager.m */; };
 		A3E6DBAC1B677E570082CCAC /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E6DBA71B677E570082CCAC /* NSObject_Extension.m */; };
 		A3E6DBAE1B677E570082CCAC /* xTransCodelation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E6DBAB1B677E570082CCAC /* xTransCodelation.m */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations -Wno-format"; }; };
+		C46536F31CB10E1100DED0FE /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46536F21CB10E1100DED0FE /* CoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		A3E6DBAA1B677E570082CCAC /* xTransCodelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xTransCodelation.h; sourceTree = "<group>"; };
 		A3E6DBAB1B677E570082CCAC /* xTransCodelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xTransCodelation.m; sourceTree = "<group>"; };
 		A3E8B5691B68AE310098B7E6 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macro.h; path = class/source/Macro.h; sourceTree = "<group>"; };
+		C46536F21CB10E1100DED0FE /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C46536F31CB10E1100DED0FE /* CoreServices.framework in Frameworks */,
 				A33B00DC1B67226D005E9B84 /* AppKit.framework in Frameworks */,
 				A33B00DE1B67226D005E9B84 /* Foundation.framework in Frameworks */,
 			);
@@ -87,6 +90,7 @@
 		A33B00DA1B67226D005E9B84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C46536F21CB10E1100DED0FE /* CoreServices.framework */,
 				A33B00DB1B67226D005E9B84 /* AppKit.framework */,
 				A33B00DD1B67226D005E9B84 /* Foundation.framework */,
 			);

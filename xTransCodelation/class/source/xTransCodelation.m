@@ -8,6 +8,25 @@
 
 #import "xTransCodelation.h"
 
+
+extern CFArrayRef DCSCopyAvailableDictionaries();
+extern CFStringRef DCSDictionaryGetName(DCSDictionaryRef dictionary);
+extern CFStringRef DCSDictionaryGetShortName(DCSDictionaryRef dictionary);
+extern DCSDictionaryRef DCSDictionaryCreate(CFURLRef url);
+extern CFStringRef DCSDictionaryGetName(DCSDictionaryRef dictionary);
+extern CFArrayRef DCSCopyRecordsForSearchString(DCSDictionaryRef dictionary, CFStringRef string, void *, void *);
+
+extern CFDictionaryRef DCSCopyDefinitionMarkup(DCSDictionaryRef dictionary, CFStringRef record);
+extern CFStringRef DCSRecordCopyData(CFTypeRef record);
+extern CFStringRef DCSRecordCopyDataURL(CFTypeRef record);
+extern CFStringRef DCSRecordGetAnchor(CFTypeRef record);
+extern CFStringRef DCSRecordGetAssociatedObj(CFTypeRef record);
+extern CFStringRef DCSRecordGetHeadword(CFTypeRef record);
+extern CFStringRef DCSRecordGetRawHeadword(CFTypeRef record);
+extern CFStringRef DCSRecordGetString(CFTypeRef record);
+extern CFStringRef DCSRecordGetTitle(CFTypeRef record);
+extern DCSDictionaryRef DCSRecordGetSubDictionary(CFTypeRef record);
+
 @interface xTransCodelation()
 
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
@@ -169,8 +188,21 @@
             _stringPopover.delegate = self;
             [_stringPopover showRelativeToRect:self.stringButton.bounds
                                         ofView:self.stringButton
-                                 preferredEdge:NSMinYEdge];
+                                  preferredEdge:NSMinYEdge];
         }];
+    }
+    else if([[[NSUserDefaults standardUserDefaults] objectForKey:KEYAPIMODEL] isEqualToString:@"3"]){
+        NSString *str = (__bridge NSString *)(DCSCopyTextDefinition(NULL, (__bridge CFStringRef _Nonnull)(_selectedStringContent), CFRangeMake(0, [_selectedStringContent length])));
+        
+        _stringPopoverViewController.msg = str;
+        _stringPopoverViewController.popVer = _stringPopover;
+        _stringPopover.contentViewController = _stringPopoverViewController;
+        _stringPopover.contentViewController = _stringPopoverViewController;
+        _stringPopover.contentSize = _stringPopoverViewController.view.frame.size;
+        _stringPopover.delegate = self;
+        [_stringPopover showRelativeToRect:self.stringButton.bounds
+                                    ofView:self.stringButton
+                             preferredEdge:NSMinYEdge];
     }
     else {
         // 非SDK翻译模式，又分为有道或是百度网页翻译
