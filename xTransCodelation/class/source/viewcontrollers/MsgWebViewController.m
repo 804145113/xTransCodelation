@@ -14,9 +14,10 @@
 
 @implementation MsgWebViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do view setup here.
+- (void)viewWillAppear {
+    [super viewWillAppear];
+    // 加载数据
+    [self.msgWebView.mainFrame loadHTMLString:self.htmlString baseURL:nil];
 }
 
 @end

@@ -10,6 +10,7 @@
 		A33B00DC1B67226D005E9B84 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33B00DB1B67226D005E9B84 /* AppKit.framework */; };
 		A33B00DE1B67226D005E9B84 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33B00DD1B67226D005E9B84 /* Foundation.framework */; };
 		A33B00E31B67226D005E9B84 /* xTransCodelation.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = A33B00E21B67226D005E9B84 /* xTransCodelation.xcscheme */; };
+		A3932A651D5C3FC000FD0F7E /* whiteBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3932A641D5C3FC000FD0F7E /* whiteBg@2x.png */; };
 		A39F348F1B69CA2B000BCF67 /* HOStringFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F348C1B69CA2B000BCF67 /* HOStringFrameView.m */; };
 		A39F34901B69CA2B000BCF67 /* HOStringInfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F348E1B69CA2B000BCF67 /* HOStringInfoButton.m */; };
 		A39F349B1B69CA67000BCF67 /* MsgPopverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39F34931B69CA67000BCF67 /* MsgPopverViewController.m */; };
@@ -31,6 +32,7 @@
 		A33B00DD1B67226D005E9B84 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		A33B00E11B67226D005E9B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A33B00E21B67226D005E9B84 /* xTransCodelation.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = xTransCodelation.xcscheme; path = xTransCodelation.xcodeproj/xcshareddata/xcschemes/xTransCodelation.xcscheme; sourceTree = SOURCE_ROOT; };
+		A3932A641D5C3FC000FD0F7E /* whiteBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteBg@2x.png"; sourceTree = "<group>"; };
 		A39F348B1B69CA2B000BCF67 /* HOStringFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOStringFrameView.h; sourceTree = "<group>"; };
 		A39F348C1B69CA2B000BCF67 /* HOStringFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOStringFrameView.m; sourceTree = "<group>"; };
 		A39F348D1B69CA2B000BCF67 /* HOStringInfoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOStringInfoButton.h; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		A39F34911B69CA67000BCF67 /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				A3932A641D5C3FC000FD0F7E /* whiteBg@2x.png */,
 				A39F34921B69CA67000BCF67 /* MsgPopverViewController.h */,
 				A39F34931B69CA67000BCF67 /* MsgPopverViewController.m */,
 				A39F34941B69CA67000BCF67 /* MsgPopverViewController.xib */,
@@ -242,6 +245,7 @@
 			files = (
 				A39F349C1B69CA67000BCF67 /* MsgPopverViewController.xib in Resources */,
 				A39F349E1B69CA67000BCF67 /* MsgWebViewController.xib in Resources */,
+				A3932A651D5C3FC000FD0F7E /* whiteBg@2x.png in Resources */,
 				A39F34A01B69CA67000BCF67 /* SettingWindowController.xib in Resources */,
 				A33B00E31B67226D005E9B84 /* xTransCodelation.xcscheme in Resources */,
 			);

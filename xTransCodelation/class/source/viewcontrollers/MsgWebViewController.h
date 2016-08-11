@@ -10,6 +10,8 @@
 #import <WebKit/WebKit.h>
 
 @interface MsgWebViewController : NSViewController
+
+@property (weak) NSString *htmlString;
 @property (weak) IBOutlet WebView *msgWebView;
 
 @end

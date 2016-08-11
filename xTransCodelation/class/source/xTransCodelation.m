@@ -27,7 +27,7 @@ extern CFStringRef DCSRecordGetString(CFTypeRef record);
 extern CFStringRef DCSRecordGetTitle(CFTypeRef record);
 extern DCSDictionaryRef DCSRecordGetSubDictionary(CFTypeRef record);
 
-@interface xTransCodelation()
+@interface xTransCodelation()<WebFrameLoadDelegate>
 
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
 @property (nonatomic, assign) NSRange selectedStringRange;
@@ -176,7 +176,7 @@ extern DCSDictionaryRef DCSRecordGetSubDictionary(CFTypeRef record);
         _stringPopover = [[NSPopover alloc] init];
     }
     
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:KEYAPIMODEL] isEqualToString:@"2"]) {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:KEYAPIMODEL] isEqualToString:@"1"]) {
         // SDK翻译模式
         _stringPopoverViewController.textView_msg.string = @"";
         [BDTranslateManager translateContent:_selectedStringContent block:^(NSDictionary *jsonContent) {
@@ -191,7 +191,7 @@ extern DCSDictionaryRef DCSRecordGetSubDictionary(CFTypeRef record);
                                   preferredEdge:NSMinYEdge];
         }];
     }
-    else if([[[NSUserDefaults standardUserDefaults] objectForKey:KEYAPIMODEL] isEqualToString:@"3"]){
+    else if([[[NSUserDefaults standardUserDefaults] objectForKey:KEYAPIMODEL] isEqualToString:@"2"]){
         NSString *str = (__bridge NSString *)(DCSCopyTextDefinition(NULL, (__bridge CFStringRef _Nonnull)(_selectedStringContent), CFRangeMake(0, [_selectedStringContent length])));
         
         _stringPopoverViewController.msg = str;
@@ -205,16 +205,61 @@ extern DCSDictionaryRef DCSRecordGetSubDictionary(CFTypeRef record);
                              preferredEdge:NSMinYEdge];
     }
     else {
-        // 非SDK翻译模式，又分为有道或是百度网页翻译
-        NSString *translateString = nil;
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:KEYAPIMODEL] isEqualToString:@"1"]) {
-            // 有道翻译
-            translateString = [NSString stringWithFormat:@"http://dict.youdao.com/search?le=eng&q=%@&keyfrom=dict.top",[_selectedStringContent URLEncode]];
-        }
-        else {
-            // 百度翻译
-            translateString = [NSString stringWithFormat:@"%@%@",@"http://fanyi.baidu.com/?aldtype=16047#auto/zh/",[_selectedStringContent URLEncode]];
-        }
+            // 非SDK翻译模式，精简后只取有道翻译接口，百度翻译不用了。没必要，有道就够了。
+            NSString *translateString = [NSString stringWithFormat:@"%@%@%@",@"http://dict.youdao.com/w/",[_selectedStringContent URLEncode],@"/#keyfrom=dict2.top"];
+
+            // 获取网站返回的HTML代码
+            NSURL *url = [NSURL URLWithString:translateString];
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                if (data == nil || connectionError != nil) {
+                    NSAlert *alert = [[NSAlert alloc] init];
+                    [alert setMessageText:@"请检测你的网络状态是否良好！"];
+                    [alert runModal];
+                    return ;
+                }
+                NSString *htmlString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                if (htmlString != nil) {
+
+                    // 1.获取翻译的字符串
+
+                    NSMutableString *mS = [[NSMutableString alloc] initWithString:htmlString];
+                    NSRange start1 = [mS rangeOfString:@"<div class=\"via ar\">"];
+                    NSRange end1 = [mS rangeOfString:@"<script type=\"text/javascript\" src"];
+                    if (start1.length != 0 && end1.length != 0) {
+                        [mS deleteCharactersInRange:NSMakeRange(start1.location, end1.location-start1.location)];
+                    }
+
+                    // 2.去掉顶部搜索框
+                    NSRange startCss = [mS rangeOfString:@"<!-- 搜索框开始 -->"];
+                    NSRange endCss = [mS rangeOfString:@"<!-- 搜索框结束 -->"];
+
+                    if (startCss.length != 0 && endCss.length != 0) {
+                        [mS deleteCharactersInRange:NSMakeRange(startCss.location, endCss.location - startCss.location)];
+                    }
+
+                    // 3.去掉底部广告
+                    NSRange start = [mS rangeOfString:@"<div id=\"scontainer\">"];
+                    NSRange end = [mS rangeOfString:@"class=\"results-content\">"];
+
+                    if (start.length != 0 && end.length != 0) {
+                        [mS deleteCharactersInRange:NSMakeRange(start.location, end.location - start.location + end.length)];
+                    }
+
+//                    [_webViewController.msgWebView.mainFrame loadHTMLString:@"<html><body>start...</body></html>" baseURL:nil];
+//                    [_webViewController.msgWebView.mainFrame loadHTMLString:[NSString stringWithFormat:@"%@",mS] baseURL:[NSURL URLWithString:translateString]];
+
+                    _webViewController.htmlString = mS;
+                    _stringPopover.contentViewController = _webViewController;
+                    _stringPopover.contentSize = _webViewController.view.frame.size;
+                    _stringPopover.delegate = self;
+                    [_stringPopover showRelativeToRect:self.stringButton.bounds
+                                                ofView:self.stringButton
+                                         preferredEdge:NSMinYEdge];
+                    
+                }
+            }];
+        /* 老版本代码
         [_webViewController.msgWebView.mainFrame loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:translateString]]];
         _stringPopover.contentViewController = _webViewController;
         _stringPopover.contentSize = _webViewController.view.frame.size;
@@ -222,8 +267,28 @@ extern DCSDictionaryRef DCSRecordGetSubDictionary(CFTypeRef record);
         [_stringPopover showRelativeToRect:self.stringButton.bounds
                                     ofView:self.stringButton
                              preferredEdge:NSMinYEdge];
+
+        [NSURLRequest ];
+         */
     }
 }
+
+//- (void)webView:(WebView *)sender didReceiveServerRedirectForProvisionalLoadForFrame:(WebFrame *)frame {
+//    NSLog(@"didReceiveServerRedirectForProvisionalLoadForFrame");
+//}
+//
+//- (void)webView:(WebView *)sender resource:(id)identifier didFinishLoadingFromDataSource:(WebDataSource *)dataSource {
+//
+//    //
+//    NSLog(@"didFinishLoadingFromDataSource");
+//
+//
+//
+//}
+//
+//- (void)webView:(WebView *)sender resource:(id)identifier didFailLoadingWithError:(NSError *)error fromDataSource:(WebDataSource *)dataSource {
+//    NSLog(@"didFailLoadingWithError");
+//}
 
 - (void)popoverDidShow:(NSNotification *)notification {
     NSWindow *window = [[[NSApplication sharedApplication] windows] objectAtIndex:0];

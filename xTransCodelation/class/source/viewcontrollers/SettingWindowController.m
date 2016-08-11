@@ -117,8 +117,5 @@
     else if ([sender indexOfSelectedItem] == 2) {
         [uDefaults setObject:@"2" forKey:KEYAPIMODEL];
     }
-    else if ([sender indexOfSelectedItem] == 3){
-        [uDefaults setObject:@"3" forKey:KEYAPIMODEL];
-    }
 }
 @end
