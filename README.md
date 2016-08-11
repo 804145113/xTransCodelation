@@ -1,4 +1,5 @@
-#XCODE中英文翻译插件
+#xTransCodelation
+
 #Xcode版本  更新支持至XCODE 7.3(GM)
 
 #说明
